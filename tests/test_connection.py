@@ -1,4 +1,5 @@
 import unittest
+from ezsignal.Connection import Connection
 
 
 def connection_example():

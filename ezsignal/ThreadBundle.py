@@ -23,3 +23,8 @@ class ThreadBundle:
             thread.start()
         death_thread.start()
 
+    def join(self):
+        if self.is_running:
+            for thread in self.threads:
+                thread.join()
+

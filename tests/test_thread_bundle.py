@@ -1,5 +1,6 @@
 import unittest
 
+
 class test_thread_bundle(unittest.TestCase):
 
     def test_thread_bundle_init(self):

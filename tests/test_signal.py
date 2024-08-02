@@ -1,4 +1,5 @@
 import unittest
+from ezsignal import Signal
 from ezsignal import Connection
 
 

@@ -1,4 +1,5 @@
 import unittest
+from ezsignal.ThreadBundle import ThreadBundle
 
 
 class test_thread_bundle(unittest.TestCase):

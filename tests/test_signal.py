@@ -13,6 +13,13 @@ class test_signal(unittest.TestCase):
         signal = Signal()
         self.assertEqual(len(signal.connections), 0)
 
+    def test_signal_connect(self):
+        signal = Signal()
+        connection = signal.connect(test_connection_func)
+        self.assertTrue(isinstance(connection, Connection))
+        self.assertEqual(len(signal.connections), 1)
+        self.assertEqual(signal.connections[0], connection)
+
 
 if __name__ == '__main__':
     unittest.main()

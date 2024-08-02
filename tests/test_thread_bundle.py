@@ -34,6 +34,17 @@ class test_thread_bundle(unittest.TestCase):
         self.assertTrue(bundle.is_dead)
         self.assertFalse(bundle.is_running)
 
+    def test_thread_bundle_join(self):
+        bundle = ThreadBundle()
+        thread = threading.Thread(target=target_func)
+        bundle.add(thread)
+        start = time.time()
+        bundle.start()
+        bundle.join()
+        stop = time.time()
+        delta = stop - start
+        self.assertGreater(delta, .5)
+
 
 
 if __name__ == '__main__':

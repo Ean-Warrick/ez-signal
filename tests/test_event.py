@@ -3,7 +3,8 @@ from ezsignal.Signal import Signal
 from ezsignal.Event import Event
 from ezsignal.ThreadBundle import ThreadBundle
 
-class test_connection(unittest.TestCase):
+
+class test_event(unittest.TestCase):
 
     def test_event_init(self):
         event = Event()

@@ -1,10 +1,12 @@
+import time
 import unittest
 from ezsignal import Signal
 from ezsignal import Connection
 from ezsignal import ThreadBundle
 
+
 def test_connection_func():
-    pass
+    time.sleep(.5)
 
 
 class test_signal(unittest.TestCase):

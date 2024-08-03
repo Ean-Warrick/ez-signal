@@ -46,9 +46,8 @@ score_board.add_to_score(5)
 print("-------------------")
 score_board.add_to_score(7)
 
-"""
-Output:
-
+# Output:
+""" 
 New score: 5
 Score is below 10
 Score is not divisible by 3

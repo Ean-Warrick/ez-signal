@@ -1,11 +1,4 @@
-# ez-signal
-
-A light signal implementation in Python that can be easilly added to any project.
-
-
-## Usage:
-```python
-# this example illustrates a situation where a developer wants different functions to run simultaneously 
+# this example illustrates a situation where a developer wants different functions to run simultaneously
 # when a score value is changed.
 
 import ezsignal
@@ -31,7 +24,7 @@ def is_new_score_divisible_by_3(new_score):
         print("Score is not divisible by 3")
 
 
-#  connect the above functions to score_changed_signal 
+#  connect the above functions to score_changed_signal
 print_connection = score_changed_signal.connect(print_new_score)
 score_above_connection = score_changed_signal.connect(is_new_score_above_ten)
 score_divisible_connection = score_changed_signal.connect(is_new_score_divisible_by_3)
@@ -44,5 +37,3 @@ thread_bundle.join()  # yields thread until all connected functions finish runni
 # New score: 9
 # Score is below 10
 # Score is divisible by 3
-
-```

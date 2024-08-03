@@ -1,9 +1,23 @@
-# this example illustrates a situation where a developer wants different functions to run simultaneously
-# when a score value is changed.
+"""
+Example situation: A developer wants different functions to run asynchronously when a score value
+inside a ScoreBoard instance is changed.
+"""
 
-import ezsignal
+from ezsignal import Event
 
-score_changed_signal = ezsignal.Signal()
+
+class ScoreBoard:
+    def __init__(self):
+        self._score_changed_event = Event()
+        self.score_changed = self._score_changed_event.signal
+        self.score = 0
+
+    def add_to_score(self, amount):
+        self.score += amount
+        self._score_changed_event.emit(self.score)
+
+
+score_board = ScoreBoard()
 
 
 def print_new_score(new_score):
@@ -24,16 +38,23 @@ def is_new_score_divisible_by_3(new_score):
         print("Score is not divisible by 3")
 
 
-#  connect the above functions to score_changed_signal
-print_connection = score_changed_signal.connect(print_new_score)
-score_above_connection = score_changed_signal.connect(is_new_score_above_ten)
-score_divisible_connection = score_changed_signal.connect(is_new_score_divisible_by_3)
+print_connection = score_board.score_changed.connect(print_new_score)
+above_connection = score_board.score_changed.connect(is_new_score_above_ten)
+divisible_connection = score_board.score_changed.connect(is_new_score_divisible_by_3)
 
-thread_bundle = score_changed_signal.emit(9)  # score value is changed to 9 [example]
+score_board.add_to_score(5)
+print("-------------------")
+score_board.add_to_score(7)
 
-thread_bundle.join()  # yields thread until all connected functions finish running
+"""
+Output:
 
-# output
-# New score: 9
-# Score is below 10
-# Score is divisible by 3
+New score: 5
+Score is below 10
+Score is not divisible by 3
+--------------------
+New score: 12
+Score is above 10
+Score is divisible by 3
+
+"""

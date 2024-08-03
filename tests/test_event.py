@@ -11,7 +11,8 @@ class test_event(unittest.TestCase):
         self.assertTrue(isinstance(event.signal, Signal))
 
     def test_event_emit(self):
-        value = 0
+        global value
+        value = 1
 
         def test(new_value):
             global value

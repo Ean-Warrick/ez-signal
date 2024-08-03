@@ -18,7 +18,7 @@ class Signal:
             if not connection.is_connected:
                 self.connections.remove(connection)
             else:
-                thread = threading.Thread(target=connection.func, daemon=True)
+                thread = threading.Thread(target=connection.func, daemon=True, args=args)
                 thread_bundle.add(thread)
         thread_bundle.start()
         return thread_bundle

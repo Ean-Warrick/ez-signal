@@ -1,9 +1,11 @@
-# ez-signal
+<img src="https://github.com/user-attachments/assets/0bb35e4f-d926-4cee-96dc-1f0870ea165c" width="350" />
 
-A lightweight event signal implementation in Python.
+
+## About
+A lightweight Python package for threaded events.
 
 Events allow for one way communication between threads without yielding the thread that emits the signal.
-## Usage:
+## Usage
 ```python
 """
 Example situation: A developer wants different functions to run asynchronously when a score value 
@@ -66,3 +68,6 @@ Score is divisible by 3
 """
 
 ```
+
+# Installation
+Currently PySignal is only located on GitHub, future updates will add EZ-Signal to PyPi.
